@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<web-component-optimizer>
+    <template name="my-counter">
+        <button class="btn btn-danger">
+            <slot></slot>
+        </button>
+    </template>
+
+    <my-counter>1</my-counter>
+    <my-counter>2</my-counter>
+    <my-counter>3</my-counter>
+</web-component-optimizer>
+
+<template id="my-counter-template">
+    <style>
+        button {
+            background-color: orange;
+            color: black;
+            padding: .375rem .75rem;
+            border-radius: 0.25rem;
+            border:  1px solid transparent;
+            line-height: 1.5rem;
+        }
+    </style>
+    <button>
+        <slot></slot>
+    </button>
+</template>
+<my-counter data-template="my-counter-template">1</my-counter>
